@@ -15,8 +15,10 @@ function getErrorMessage(err) {
 
 exports.create = function (req, res) {
     const course = new Course();
-    course.title = req.body.title;
-    course.content = req.body.content;
+    course.courseCode = req.body.courseCode;
+    course.courseName = req.body.courseName;
+    course.section = req.body.section;
+    course.semester = req.body.semester;
 
     console.log(req.body)
 
@@ -77,8 +79,10 @@ exports.read = function (req, res) {
 exports.update = function (req, res) {
     console.log('in update:', req.course)
     const course = req.course;
-    course.title = req.body.title;
-    course.content = req.body.content;
+    course.courseCode = req.body.courseCode;
+    course.courseName = req.body.courseName;
+    course.section = req.body.section;
+    course.semester = req.body.semester;
     course.save((err) => {
         if (err) {
             return res.status(400).send({

@@ -11,7 +11,7 @@ function CreateCourse(props) {
     
     const username = props.screen;
     console.log('props.screen',props.screen)
-    const [course, setCourse] = useState({ _id: '', title: '', content: '', username: '' });
+    const [course, setCourse] = useState({ _id: '', courseCode: '', courseName: '', section: '', semester: '',username: '' });
     const [showLoading, setShowLoading] = useState(false);
     
     const apiUrl = "http://localhost:3000/api/courses"
@@ -19,7 +19,7 @@ function CreateCourse(props) {
     const saveCourse = (e) => {
         setShowLoading(true);
         e.preventDefault();
-        const data = {title: course.title, content: course.content, username: username };
+        const data = {courseCode: course.courseCode , courseName: course.courseName , section: course.section , semester: course.semester, username: username };
         
         axios.post(apiUrl, data)
         .then((result) => {
@@ -34,35 +34,75 @@ function CreateCourse(props) {
         e.persist();
         setCourse({...course, [e.target.name]: e.target.value});
       }
+
+      const pagestyle = {
+        color: "black",
+        backgroundColor: "LightBlue",
+        padding: "20px",
+        fontFamily: "Arial"
+      };
     
     return (
         <div>
-        <h2> Create a course {username} </h2>
+        <h2> Add a course {username} </h2>
         {showLoading && 
             <Spinner animation="border" role="status">
             <span className="sr-only">Loading...</span>
             </Spinner> 
         } 
-        <Jumbotron>
+        <Jumbotron style={pagestyle}>
             <Form onSubmit={saveCourse}>
-              <Form.Group>
-                <Form.Label> Title</Form.Label>
-                <Form.Control type="text" name="title" id="title" placeholder="Enter title" value={course.title} onChange={onChange} />
-              </Form.Group>
-              <Form.Group>
-                <Form.Label> Content</Form.Label>
-                <Form.Control as="textarea" rows="3" name="content" id="content" placeholder="Enter Content" value={course.content} onChange={onChange} />
-              </Form.Group>
-                            
-              <Button variant="primary" type="submit">
-                Save Course
-              </Button>
-            </Form>
-          </Jumbotron>
+            <div className="container mt-5">
+                <div className="row d-flex justify-content-center">
+                    <div className="col-md-6">
+                        <h1>{props.title}</h1>                   
+                            <div className="card-body"style={pagestyle}>
+                                <div className="form-group mt-3">
+                                    <label htmlFor="Ccose">Course Code</label>
+                                    <input type="text" name="courseCode" id="courseCode" value={course.courseCode} onChange={onChange}  className="form-control" />
+                                </div>
+                                <div className="form-group mt-3">
+                                    <label htmlFor="Cname">Course Name</label>
+                                    <input type="text" name="courseName" id="courseName" className="form-control" onChange={onChange} value={course.courseName} />
+                                </div>
+                                <div className="form-group mt-3">
+                                    <label htmlFor="Cname">Section</label>
+                                    <select name="section" id="section" className='form-control' value={course.section} onChange={onChange}>
+                                        <option value="">Select</option>
+                                        <option value="SEC001">SEC001</option>
+                                        <option value="SEC002">SEC002</option>
+                                        <option value="SEC003">SEC003</option>
+                                        <option value="SEC004">SEC004</option>
+                                        <option value="SEC005">SEC005</option>
+                                        <option value="SEC006">SEC006</option>
+                                        <option value="SEC007">SEC007</option>
+                                        <option value="SEC008">SEC008</option>
+                                    </select>
+                                </div>
+                                <div className="form-group mt-3">
+                                    <label htmlFor="Cname">Semester</label>
+                                    <select name="semester" id="semester" className='form-control' onChange={onChange} value={course.semester}>
+                                        <option value="">Select</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                    </select>
+                                </div>
+                      
+        <Button variant="primary" type="submit">Save Course </Button>
         </div>
-    );
+  </div>
+  </div>
+  </div>
 
+      </Form>
+      </Jumbotron>
+  </div>
 
+);
 }
 
 export default withRouter(CreateCourse);

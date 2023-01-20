@@ -47,8 +47,10 @@ function ShowCourse(props) {
         <span className="sr-only">Loading...</span>
       </Spinner> }    
       <Jumbotron>
-        <h1>Title: {data.title}</h1>
-        <p>Content: {data.content}</p>
+      <h1>Course Name: {data.courseName}</h1>
+        <p>Course Code: {data.courseCode}</p>
+        <p>Section: {data.section}</p>
+        <p>Semester: {data.semester}</p>
 
         <p>
           <Button type="button" variant="primary" onClick={() => { editCourse(data._id) }}>Edit</Button>&nbsp;
