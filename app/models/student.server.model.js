@@ -7,6 +7,11 @@ const Schema = mongoose.Schema;
 var StudentSchema = new Schema({
     firstName: String,
 	lastName: String,
+	studentAddress: String,
+	studentCity: String,
+	studentPhoneNumber: String,
+	studentProgram: String,
+
 	email: {
 		type: String,
 		

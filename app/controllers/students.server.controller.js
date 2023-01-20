@@ -9,7 +9,6 @@ const jwtKey =config.secretKey;
 const getErrorMessage = function(err) {
 	var message = '';
 
-
 	if (err.code) {
 		switch (err.code) {
 
