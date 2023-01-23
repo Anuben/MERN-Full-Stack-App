@@ -114,7 +114,7 @@ function EditCourse(props) {
                                         <option value="3">3</option>
                                         <option value="4">4</option>
                                         <option value="5">5</option>
-                                        <option value="4"></option>
+                                        <option value="4">6</option>
                                     </select>
                                 </div>
           <Button variant="primary" type="submit">Update Course</Button>&nbsp;&nbsp;

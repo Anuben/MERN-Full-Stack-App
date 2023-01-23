@@ -12,7 +12,7 @@ function View (props) {
  
   const [course, setCourse] = useState('');
   
-  const deleteCookie = async () => {
+  const logOut = async () => {
     try {
       await axios.get('/signout');
       setScreen('auth');
@@ -43,21 +43,34 @@ function View (props) {
     setCourse('y')
 
   }
+
+  const pagestyle1 = {
+    color: "black",
+    backgroundColor: "SteelBlue",
+    padding: "20px",
+    fontFamily: "Arial"
+  };
+  const pagestyle = {
+    color: "black",
+    backgroundColor: "LightBlue",
+    padding: "20px",
+    fontFamily: "Arial"
+  };
  
   return (
-    <div className="App">
+    <div className="container mt-5" style={pagestyle1}>
+      <div className="container mt-5" style={pagestyle}>
       {course !== 'y'
         ? <div>
-            <p>{screen}</p>
             <p>{data}</p>
-            <button onClick={verifyCookie}>Verify Cookie</button>
-            <button onClick={createCourse}>Create Course</button>
-            <button onClick={listCourses(data)}>List Courses</button>
-
-            <button onClick={deleteCookie}>Log out</button>
+            <h3>Welcome </h3> 
+          
+            <button onClick={createCourse} className='btn btn-primary mt-4'>Add Course</button>&nbsp;&nbsp;
+            <button onClick={logOut} className='btn btn-danger mt-4'>Log out</button>
           </div>            
         : <CreateCourse screen={screen} setScreen={setScreen} />
       }
+    </div>
     </div>
   );
 }

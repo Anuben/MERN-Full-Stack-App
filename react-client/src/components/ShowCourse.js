@@ -4,6 +4,7 @@ import Spinner from 'react-bootstrap/Spinner';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Button from 'react-bootstrap/Button';
 import { withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function ShowCourse(props) {
   console.log('props.match.params',props.match.params.id)
@@ -32,7 +33,7 @@ function ShowCourse(props) {
 
   const deleteCourse = (id) => {
     setShowLoading(true);
-    const course = { title: data.title, content: data.content };
+    const course = { courseCode: data.courseCode , courseName: data.courseName , section: data.section , semester: data.semester };
     //
     axios.delete(apiUrl, course)
       .then((result) => {
@@ -53,6 +54,7 @@ function ShowCourse(props) {
         <p>Semester: {data.semester}</p>
 
         <p>
+        <Link className='btn btn-sm btn-success' to={`/listCourses/${data._id}`}>Back to the List</Link>&nbsp;
           <Button type="button" variant="primary" onClick={() => { editCourse(data._id) }}>Edit</Button>&nbsp;
           <Button type="button" variant="danger" onClick={() => { deleteCourse(data._id) }}>Delete</Button>
         </p>

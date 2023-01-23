@@ -38,14 +38,28 @@ function List(props) {
     });
   }
 
+  const pagestyle = {
+    color: "black",
+    backgroundColor: "SteelBlue",
+    padding: "20px",
+    fontFamily: "Arial"
+  };
+
+  const pagestyle1 = {
+    color: "black",
+    backgroundColor: "LightBlue",
+    padding: "20px",
+    fontFamily: "Arial"
+  };
+
   return (
-    <div>
+    <div style={pagestyle}>
       { data.length !== 0
         ? <div>
           {showLoading && <Spinner animation="border" role="status">
             <span className="sr-only">Loading...</span>
           </Spinner> }
-          <ListGroup>
+          <ListGroup style={pagestyle1}>
             {data.map((item, idx) => (
               <ListGroup.Item key={idx} action onClick={() => { showDetail(item._id) }}>{item.username}</ListGroup.Item>
             ))}
