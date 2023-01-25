@@ -4,6 +4,7 @@ import Spinner from 'react-bootstrap/Spinner';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Button from 'react-bootstrap/Button';
 import { withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function ShowStudent(props) {
   const [data, setData] = useState({});
@@ -54,8 +55,9 @@ function ShowStudent(props) {
         <p>Student Program: {data.studentProgram}</p>
 
         <p>
-          <Button type="button" variant="primary" onClick={() => { editStudent(data._id) }}>Edit</Button>&nbsp;
-          <Button type="button" variant="danger" onClick={() => { deleteStudent(data._id) }}>Delete</Button>
+          <Button type="button" variant="primary" className='btn btn-primary mt-4' onClick={() => { editStudent(data._id) }}>Edit</Button>&nbsp;
+          <Button type="button" variant="danger" className='btn btn-primary mt-4'  onClick={() => { deleteStudent(data._id) }}>Delete</Button>&nbsp;
+          <Link className='btn btn-primary mt-4' to={`/list/`}>Back to student list</Link>
         </p>
       </Jumbotron>
     </div>
