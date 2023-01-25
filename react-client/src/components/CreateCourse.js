@@ -43,8 +43,9 @@ function CreateCourse(props) {
       };
     
     return (
+        
         <div>
-        <h2> Add a course {username} </h2>
+            <h2> Welcome {username}, please add a course:</h2>
         {showLoading && 
             <Spinner animation="border" role="status">
             <span className="sr-only">Loading...</span>
@@ -52,10 +53,8 @@ function CreateCourse(props) {
         } 
         <Jumbotron style={pagestyle}>
             <Form onSubmit={saveCourse}>
-            <div className="container mt-5">
                 <div className="row d-flex justify-content-center">
-                    <div className="col-md-6">
-                        <h1>{props.title}</h1>                   
+                    <div className="col-md-6">                   
                             <div className="card-body"style={pagestyle}>
                                 <div className="form-group mt-3">
                                     <label htmlFor="Ccose">Course Code</label>
@@ -96,7 +95,7 @@ function CreateCourse(props) {
         </div>
   </div>
   </div>
-  </div>
+ 
 
       </Form>
       </Jumbotron>

@@ -11,7 +11,7 @@ function Home(props)
         <div>
             <h2> Express - React with CRUD Operations</h2>
             <p>React front-end calls Express REST API to add, 
-            list, update, or delete a user, create a course, etc.</p>
+            list, update, or delete a course or student detail, etc.</p>
         </div>
     );
 
