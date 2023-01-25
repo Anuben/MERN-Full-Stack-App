@@ -57,25 +57,56 @@ function App() {
   useEffect(() => {
     readCookie();
   }, []); 
-  return (
-    <div className="App">
-      {screen === 'auth' 
-        ? <div>
-          <label>Username: </label>
-          <br/>
-          <input type="text" onChange={e => setUsername(e.target.value)} />
-          <br/>
-          <label>Password: </label>
-          <br/>
-          <input type="password" onChange={e => setPassword(e.target.value)} />
-          <br/>
-          <button onClick={auth}>Login</button>
-        </div>
-        : <View screen={screen} setScreen={setScreen} />
-      }
-    </div>
-  );
-}
+  const pagestyle = {
+    color: "black",
+    backgroundColor: "LightBlue",
+    padding: "20px",
+    fontFamily: "Arial"
+  };
+  const pagestyle1 = {
+    color: "black",
+    backgroundColor: "SteelBlue",
+    padding: "20px",
+    fontFamily: "Arial"
+  };
+return (
+  <div className="App">
+     {screen === 'auth'
+     ? <div style={{ height: '90vh' }} className="row d-flex justify-content-center align-items-center">
+          <div className="container mt-5" style={pagestyle1}>
+              <div className="card">
+                  <div className="card-body"style={pagestyle}>
 
+                      <div className="row  d-flex justify-content-center align-items-center">
+                          <div className="col-md-6">
+                              <img className='img-fluid' src="logo.png" alt="" />
+                          </div>
+                          <div className="col-md-6">
+                              <h3>Login</h3>
+                              <div className="form-group mt-4">
+                                  <label htmlFor="">Username</label>
+                                  <input type="text" onChange={(e) => setUsername(e.target.value)} value={username} className='form-control' />
+                              </div>
+                              <div className="form-group mt-4">
+                                  <label htmlFor="">Password</label>
+                                  <input onChange={(e) => setPassword(e.target.value)} value={password} type="password" className='form-control' />
+                              </div>
+                              <button onClick={auth} className='btn btn-primary mt-4'>Login</button>
+                          </div>
+                          
+                      </div>
+
+
+                  </div>
+              </div>
+          </div>
+      </div>
+: <View screen={screen} setScreen={setScreen} />
+}
+</div>
+);
+}
 export default App;
+
+
 
