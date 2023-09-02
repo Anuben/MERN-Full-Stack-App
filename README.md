@@ -35,31 +35,37 @@ To get started with this project, follow these steps:
 
 2. Navigate to the project directory:
 
+   ```bash
    cd course-registration-system
    
-3. Install the dependencies for the frontend:
+4. Install the dependencies for the frontend:
 
+    ```bash
    cd react-client
    npm install
 
-4. Navigate back to the project root directory:
+5. Navigate back to the project root directory:
 
+    ```bash
    cd ..
 
-5. Install the dependencies for the backend:
+7. Install the dependencies for the backend:
 
+    ```bash
    cd app
    npm install
 
-6. Configure your MongoDB connection by editing the config.js file in the server/app/ directory.
+9. Configure your MongoDB connection by editing the config.js file in the server/app/ directory.
 
-7. Start the backend server:
+10. Start the backend server:
 
+    ```bash
    cd ..
    npm start
 
-8. Start the frontend development server:
+11. Start the frontend development server:
 
+    ```bash
    cd react-client
    npm start
 
