@@ -33,6 +33,39 @@ To get started with this project, follow these steps:
    ```bash
    git clone https://github.com/your-username/course-registration-system.git
 
+2. Navigate to the project directory:
+
+   cd course-registration-system
+   
+3. Install the dependencies for the frontend:
+
+   cd react-client
+   npm install
+
+4. Navigate back to the project root directory:
+
+   cd ..
+
+5. Install the dependencies for the backend:
+
+   cd app
+   npm install
+
+6. Configure your MongoDB connection by editing the config.js file in the server/app/ directory.
+
+7. Start the backend server:
+
+   cd ..
+   npm start
+
+8. Start the frontend development server:
+
+   cd react-client
+   npm start
+
+Your application should now be running. Open your browser and navigate to http://localhost:3000 to access the Course Registration and Management System.
+
+
 ## Project Structure
 
 The project is structured as follows:
